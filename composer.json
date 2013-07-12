@@ -1,0 +1,37 @@
+{
+    "name"       : "zoopcommerce/maggott-module",
+    "version"    : "1.0",
+    "description": "Zend Framework 2 Module that provides exception handling functionality",
+    "type"       : "library",
+    "license"    : "MIT",
+    "keywords": [
+        "doctrine",
+        "exception",
+        "json",
+        "zf2",
+        "shard"
+    ],
+    "homepage"   : "http://zoopcommerce.github.io/maggott-module",
+    "authors"    : [
+        {
+            "name"  : "Tim Roediger",
+            "email" : "superdweebie@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "zoopcommerce/shard-module"               : "~1.0",
+        "zendframework/zend-http"                 : "~2.2",
+        "zendframework/zend-mvc"                  : "~2.2",
+        "zendframework/zend-servicemanager"       : "~2.2",
+        "zendframework/zend-view"                 : "~2.2"
+    },
+    "suggest": {
+        "zoopcommerce/havok": "A dojo package that includes a javascript client for this exception module"
+    },
+    "autoload": {
+        "psr-0": {
+            "Zoop\\MaggottModule": "src/"
+        }
+    }
+}
