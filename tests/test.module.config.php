@@ -9,6 +9,9 @@ return [
                     'title' => 'Mapped Exception',
                     'extensionFields' => ['publicInfo'],
                     'restrictedExtensionFields' => ['restrictedInfo']
+                ],
+                'Zoop\MaggottModule\Test\Asset\NoDescriptionException' => [
+                    'title' => 'No Description Exception'
                 ]
             ]
         ]

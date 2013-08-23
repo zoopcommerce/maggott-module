@@ -3,7 +3,7 @@ return [
     'zoop' => [
         'maggott' => [
             'enable_json_exception_strategy' => true,
-            'describe_path' => '/exception',
+            'description_route' => 'exception.description',
             'exception_map' => []
         ],
     ],

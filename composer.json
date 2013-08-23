@@ -20,14 +20,13 @@
     ],
     "require": {
         "php": ">=5.4",
-        "zoopcommerce/shard-module"               : "~1.0",
         "zendframework/zend-http"                 : "~2.2",
         "zendframework/zend-mvc"                  : "~2.2",
         "zendframework/zend-servicemanager"       : "~2.2",
         "zendframework/zend-view"                 : "~2.2"
     },
     "suggest": {
-        "zoopcommerce/havok": "A dojo package that includes a javascript client for this exception module"
+        "zoopcommerce/shard-module": "Can be used for exception logging"
     },
     "autoload": {
         "psr-0": {

@@ -113,10 +113,16 @@ class JsonExceptionStrategy
 
         if (isset($this->exceptionMap[get_class($exception)])){
             $mapping = $this->exceptionMap[get_class($exception)];
-            $data = [
-                'describedBy' => $this->describePath . '/' . $mapping['described_by'],
-                'title' => $mapping['title']
-            ];
+            $data = ['title' => $mapping['title']];
+
+            if (isset($this->describePath)){
+                if (isset($mapping['described_by'])){
+                    $data['describedBy'] = $this->describePath . '/' . $mapping['described_by'];
+                } else {
+                    $data['describedBy'] = $this->describePath . '/application-exception';
+                }
+            }
+   
             if (isset($mapping['status_code'])){
                 $data['statusCode'] = $mapping['status_code'];
             }
@@ -134,9 +140,11 @@ class JsonExceptionStrategy
             }
         } else {
             $data = [
-                'describedBy' => $this->describePath . '/application-exception',
                 'title' => 'Application Exception'
             ];
+            if (isset($this->describePath)){
+                $data['describedBy'] = $this->describePath . '/application-exception';
+            }
         }
 
         if ($this->displayExceptions){

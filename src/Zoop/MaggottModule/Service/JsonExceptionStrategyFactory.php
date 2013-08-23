@@ -36,7 +36,9 @@ class JsonExceptionStrategyFactory implements FactoryInterface
         }
         $exceptionStrategy->setDisplayExceptions($displayExceptions);
 
-        if (isset($config['zoop']['maggott']['describe_path'])){
+        if (isset($config['zoop']['maggott']['description_route'])){
+
+            //todo add route lookup here
             $exceptionStrategy->setDescribePath($config['zoop']['maggott']['describe_path']);
         }
 
