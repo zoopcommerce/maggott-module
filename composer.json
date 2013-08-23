@@ -1,6 +1,6 @@
 {
     "name"       : "zoopcommerce/maggott-module",
-    "version"    : "1.0",
+    "version"    : "1.0.1",
     "description": "Zend Framework 2 Module that provides exception handling functionality",
     "type"       : "library",
     "license"    : "MIT",
@@ -24,9 +24,6 @@
         "zendframework/zend-mvc"                  : "~2.2",
         "zendframework/zend-servicemanager"       : "~2.2",
         "zendframework/zend-view"                 : "~2.2"
-    },
-    "suggest": {
-        "zoopcommerce/shard-module": "Can be used for exception logging"
     },
     "autoload": {
         "psr-0": {
