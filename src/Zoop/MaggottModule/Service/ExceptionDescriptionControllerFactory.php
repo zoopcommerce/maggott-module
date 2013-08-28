@@ -20,16 +20,16 @@ class ExceptionDescriptionControllerFactory implements FactoryInterface
 
     /**
      *
-     * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
+     * @param  \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
      * @return object
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $config = $serviceLocator->get('Config');
+        $config = $serviceLocator->getServiceLocator()->get('Config');
 
-        $controller = new ExceptionDescriptionController();
+        $controller = new ExceptionDescriptionController;
 
-        if (isset($config['zoop']['maggott']['exception_map'])){
+        if (isset($config['zoop']['maggott']['exception_map'])) {
             $controller->setExceptionMap($config['zoop']['maggott']['exception_map']);
         }
 

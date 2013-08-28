@@ -1,14 +1,11 @@
 <?php
-return array(
-    'modules' => array(
+return [
+    'modules' => [
         'Zoop\MaggottModule'
-    ),
-    'module_listener_options' => array(
-        'config_glob_paths'    => array(
-            'vendor/superdweebie/exception-module/tests/test.module.config.php',
-        ),
-        'module_paths' => array(
-            './vendor',
-        ),
-    ),
-);
+    ],
+    'module_listener_options' => [
+        'config_glob_paths'    => [
+            __DIR__ . '/test.module.config.php',
+        ],
+    ],
+];

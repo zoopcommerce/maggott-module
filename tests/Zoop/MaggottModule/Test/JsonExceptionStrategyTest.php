@@ -5,10 +5,10 @@ namespace Zoop\MaggottModule\Test;
 use Zend\Http\Header\Accept;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class JsonExceptionStrategyTest extends AbstractHttpControllerTestCase{
-
-    public function setUp(){
-
+class JsonExceptionStrategyTest extends AbstractHttpControllerTestCase
+{
+    public function setUp()
+    {
         $this->setApplicationConfig(
             include __DIR__ . '/../../../test.application.config.php'
         );
@@ -16,8 +16,8 @@ class JsonExceptionStrategyTest extends AbstractHttpControllerTestCase{
         parent::setUp();
     }
 
-    public function testExceptionDisplayExceptionsFalse(){
-
+    public function testExceptionDisplayExceptionsFalse()
+    {
         $accept = new Accept;
         $accept->addMediaType('application/json');
 
@@ -36,9 +36,10 @@ class JsonExceptionStrategyTest extends AbstractHttpControllerTestCase{
         $this->assertFalse(isset($result['detail']));
     }
 
-    public function testExceptionDisplayExceptionsTrue(){
-
-        $this->getApplicationServiceLocator()->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(true);
+    public function testExceptionDisplayExceptionsTrue()
+    {
+        $this->getApplicationServiceLocator()
+            ->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(true);
 
         $accept = new Accept;
         $accept->addMediaType('application/json');
@@ -61,9 +62,10 @@ class JsonExceptionStrategyTest extends AbstractHttpControllerTestCase{
         $this->assertTrue(isset($result['file']));
     }
 
-    public function testMappedExceptionDisplayExceptionsFalse(){
-
-        $this->getApplicationServiceLocator()->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(false);
+    public function testMappedExceptionDisplayExceptionsFalse()
+    {
+        $this->getApplicationServiceLocator()
+            ->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(false);
 
         $accept = new Accept;
         $accept->addMediaType('application/json');
@@ -84,9 +86,10 @@ class JsonExceptionStrategyTest extends AbstractHttpControllerTestCase{
         $this->assertFalse(isset($result['detail']));
     }
 
-    public function testMappedExceptionDisplayExceptionsTrue(){
-
-        $this->getApplicationServiceLocator()->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(true);
+    public function testMappedExceptionDisplayExceptionsTrue()
+    {
+        $this->getApplicationServiceLocator()
+            ->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(true);
 
         $accept = new Accept;
         $accept->addMediaType('application/json');
@@ -111,9 +114,10 @@ class JsonExceptionStrategyTest extends AbstractHttpControllerTestCase{
         $this->assertTrue(isset($result['file']));
     }
 
-    public function testNoException(){
-
-        $this->getApplicationServiceLocator()->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(true);
+    public function testNoException()
+    {
+        $this->getApplicationServiceLocator()
+            ->get('Zoop\MaggottModule\JsonExceptionStrategy')->setDisplayExceptions(true);
 
         $accept = new Accept;
         $accept->addMediaType('application/json');

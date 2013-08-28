@@ -17,18 +17,21 @@ use Zend\View\Model\JsonModel;
 class TestController extends AbstractActionController
 {
 
-    public function throwExceptionAction(){
+    public function throwExceptionAction()
+    {
         throw new \Exception('Test exception');
     }
 
-    public function throwMappedExceptionAction(){
+    public function throwMappedExceptionAction()
+    {
         $e = new MappedException('Mapped exception');
         $e->setPublicInfo('all can see this');
         $e->setRestrictedInfo('only visible when display exceptions = true');
         throw $e;
     }
 
-    public function noExceptionAction(){
+    public function noExceptionAction()
+    {
         return new JsonModel(['value' => 'all good']);
     }
 }

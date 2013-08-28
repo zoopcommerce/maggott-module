@@ -2,16 +2,13 @@
 
 return [
     'zoop' => [
-        'exception' => [
-            'exceptionMap' => [
+        'maggott' => [
+            'exception_map' => [
                 'Zoop\MaggottModule\Test\Asset\MappedException' => [
-                    'describedBy' => 'mapped-exception',
+                    'described_by' => 'mapped-exception',
                     'title' => 'Mapped Exception',
-                    'extensionFields' => ['publicInfo'],
-                    'restrictedExtensionFields' => ['restrictedInfo']
-                ],
-                'Zoop\MaggottModule\Test\Asset\NoDescriptionException' => [
-                    'title' => 'No Description Exception'
+                    'extra_fields' => ['publicInfo'],
+                    'restricted_extra_fields' => ['restrictedInfo']
                 ]
             ]
         ]
@@ -34,6 +31,12 @@ return [
                     ],
                 ],
             ],
+        ],
+    ],
+
+    'view_manager' => [
+        'template_path_stack' => [
+            __DIR__ . './view',
         ],
     ],
 ];

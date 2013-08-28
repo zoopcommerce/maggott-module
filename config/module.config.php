@@ -8,36 +8,19 @@ return [
         ],
     ],
 
-    'doctrine' => array(
-        'driver' => array(
-            'default' => array(
-                'drivers' => array(
-                    'Zoop\MaggottModule\DataModel' => 'doctrine.driver.exception'
-                ),
-            ),
-            'exception' => array(
-                'class' => 'Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver',
-                'paths' => array(
-                    __DIR__ . '/../src/Zoop/MaggottModule/DataModel'
-                ),
-            ),
-        ),
-    ),
-
     'router' => [
         'routes' => [
-            'exception.descirption' => [
+            'exception.description' => [
                 //this route will return human readable informatino about exceptions
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => [
                     'route' => '/exception/:id',
                     'constraints' => [
-                        'controller' => 'Zoop\MaggottModule\ExceptionDescriptionController',
-                        'id'         => '[a-zA-Z][a-zA-Z0-9/_-]+',
+                        'id'     => '[a-zA-Z][a-zA-Z0-9/_-]+',
                     ],
                     'defaults' => [
-                        'extension'    => 'rest',
-                        'manifestName' => 'default',
+                        'controller' => 'Zoop\MaggottModule\Controller\ExceptionDescriptionController',
+                        'action' => 'index'
                     ]
                 ],
             ],
@@ -45,8 +28,8 @@ return [
     ],
 
     'controllers' => [
-        'factory' => [
-            'Zoop\MaggottModule\ExceptionDescriptionController' => 'Zoop\MaggottModule\Service\ExceptionDescriptionControllerFactory',
+        'factories' => [
+            'Zoop\MaggottModule\Controller\ExceptionDescriptionController' => 'Zoop\MaggottModule\Service\ExceptionDescriptionControllerFactory',
         ]
     ],
 
@@ -57,6 +40,9 @@ return [
     ],
 
     'view_manager' => [
+        'template_path_stack' => [
+            __DIR__ . '/../view',
+        ],
         'strategies' => [
             'ViewJsonStrategy',
         ],

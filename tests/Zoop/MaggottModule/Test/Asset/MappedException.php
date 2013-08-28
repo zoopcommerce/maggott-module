@@ -19,19 +19,23 @@ class MappedException extends \Exception
 
     protected $restrictedInfo;
 
-    public function getPublicInfo() {
+    public function getPublicInfo()
+    {
         return $this->publicInfo;
     }
 
-    public function setPublicInfo($publicInfo) {
+    public function setPublicInfo($publicInfo)
+    {
         $this->publicInfo = $publicInfo;
     }
 
-    public function getRestrictedInfo() {
+    public function getRestrictedInfo()
+    {
         return $this->restrictedInfo;
     }
 
-    public function setRestrictedInfo($restrictedInfo) {
+    public function setRestrictedInfo($restrictedInfo)
+    {
         $this->restrictedInfo = $restrictedInfo;
     }
 }

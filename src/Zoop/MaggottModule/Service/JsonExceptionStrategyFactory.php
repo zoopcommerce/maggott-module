@@ -20,7 +20,7 @@ class JsonExceptionStrategyFactory implements FactoryInterface
 
     /**
      *
-     * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
+     * @param  \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
      * @return object
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
@@ -36,13 +36,13 @@ class JsonExceptionStrategyFactory implements FactoryInterface
         }
         $exceptionStrategy->setDisplayExceptions($displayExceptions);
 
-        if (isset($config['zoop']['maggott']['description_route'])){
-
-            //todo add route lookup here
-            $exceptionStrategy->setDescribePath($config['zoop']['maggott']['describe_path']);
+        if (isset($config['zoop']['maggott']['description_route'])) {
+            $exceptionStrategy->setRoute(
+                $serviceLocator->get('router')->getRoute($config['zoop']['maggott']['description_route'])
+            );
         }
 
-        if (isset($config['zoop']['maggott']['exception_map'])){
+        if (isset($config['zoop']['maggott']['exception_map'])) {
             $exceptionStrategy->setExceptionMap($config['zoop']['maggott']['exception_map']);
         }
 

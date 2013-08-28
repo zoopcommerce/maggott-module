@@ -20,7 +20,8 @@ class Module
      *
      * @return array
      */
-    public function getConfig(){
+    public function getConfig()
+    {
         return include __DIR__ . '/../../../config/module.config.php';
     }
 
@@ -36,12 +37,13 @@ class Module
         $application->getEventManager()->getSharedManager()->attach(
             'Zend\Mvc\Application',
             MvcEvent::EVENT_DISPATCH_ERROR,
-            function($closureEvent) use ($serviceManager){
+            function ($closureEvent) use ($serviceManager) {
                 $config = $serviceManager->get('Config');
-                if ( ! $config['zoop']['maggott']['enable_json_exception_strategy']){
+                if (! $config['zoop']['maggott']['enable_json_exception_strategy']) {
                     return;
                 }
-                $serviceManager->get('Zoop\MaggottModule\JsonExceptionStrategy')->prepareExceptionViewModel($closureEvent);
+                $serviceManager->get('Zoop\MaggottModule\JsonExceptionStrategy')
+                    ->prepareExceptionViewModel($closureEvent);
             },
             100
         );
