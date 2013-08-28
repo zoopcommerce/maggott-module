@@ -44,23 +44,23 @@ Eg:
 The `exception_map` is an array of configured exceptions. The key for each item in the array must be the FQCN of the exception. All fields to configure an exception are optional. They are:
 
 described_by
-^^^^^^^^^^^^
+------------
 If this field is supplied, the returned exception will have a `described_by` field which points to a resource where more information about the exception can be found in human readable format.
 
 If using the `described_by` field, you should also create a view model template called `zoop/maggott/<described_by>` that hold the extra human readable inforamtion.
 
 title
-^^^^^
+-----
 The title of the exception
 
 status_code
-^^^^^^^^^^^
+-----------
 The http status code should the json response be set to. Defaults to 500.
 
 extension_fields
-^^^^^^^^^^^^^^^^
+----------------
 Other properties of the exception that should always be included in the json response.
 
 restricted_extension_fields
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 Other properties of the exception that should only be included in the json response if `displayExceptions` is set to `true`.
