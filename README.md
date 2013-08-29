@@ -11,7 +11,7 @@ Install
 Add the following to your composer root:
 
     "require": {
-        "zoopcommerce/maggott-module" : "~1.0"
+        "zoopcommerce/maggott-module" : "~1.1"
     }
 
 Add the module to your application config:
