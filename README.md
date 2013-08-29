@@ -34,8 +34,8 @@ Eg:
                     'described_by' => 'access-control-exception',
                     'title' => 'Access denied',
                     'status_code' => 403,
-                    'extension_fields' => ['action'],
-                    'restricted_extension_fields' => ['documentClass']
+                    'extra_fields' => ['action'],
+                    'restricted_extra_fields' => ['documentClass']
                 ]
             ]
         ],
@@ -57,10 +57,10 @@ status_code
 -----------
 The http status code should the json response be set to. Defaults to 500.
 
-extension_fields
+extra_fields
 ----------------
 Other properties of the exception that should always be included in the json response.
 
-restricted_extension_fields
+restricted_extra_fields
 ---------------------------
 Other properties of the exception that should only be included in the json response if `displayExceptions` is set to `true`.
