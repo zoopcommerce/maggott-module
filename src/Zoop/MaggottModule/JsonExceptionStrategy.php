@@ -109,7 +109,7 @@ class JsonExceptionStrategy
 
         if (isset($modelData['statusCode'])) {
             $response->setStatusCode($modelData['statusCode']);
-        } else {
+        } else if (!$response->getStatusCode()) {
             $response->setStatusCode(500);
         }
         $response->getHeaders()
