@@ -107,9 +107,10 @@ class JsonExceptionStrategy
             $e->setResponse($response);
         }
 
-        if (isset($modelData['statusCode'])) {
+        $status = $response->getStatusCode();
+        if (isset($modelData['statusCode']) && !empty($modelData['statusCode'])) {
             $response->setStatusCode($modelData['statusCode']);
-        } else if (!$response->getStatusCode()) {
+        } else if (empty($status) || strval($status)[0] == '2') {
             $response->setStatusCode(500);
         }
         $response->getHeaders()
@@ -151,6 +152,14 @@ class JsonExceptionStrategy
             ];
             if (isset($this->route)) {
                 $data['describedBy'] = $this->route->assemble(['id' => 'application-exception']);
+            }
+            
+            // add the status code from the exception if one exists and is not 0
+            if ($exception instanceof \Exception) {
+                $code = $exception->getCode();
+                if (!empty($code) && count($code) == 3 && in_array(strval($status)[0], ['4', '5'])) {
+                    $data['statusCode'] = $code;
+                }
             }
         }
 

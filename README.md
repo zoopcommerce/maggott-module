@@ -55,7 +55,7 @@ The title of the exception
 
 status_code
 -----------
-The http status code should the json response be set to. Defaults to 500.
+The http status code should the json response be set to. Defaults to 500, but also observes the status code in the response.
 
 extra_fields
 ----------------

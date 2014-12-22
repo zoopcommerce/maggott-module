@@ -15,6 +15,12 @@
         {
             "name"  : "Tim Roediger",
             "email" : "superdweebie@gmail.com"
+        },
+        {
+            "name": "Josh Stuart",
+            "email": "josh.stuart@zoopcommerce.com",
+            "homepage": "http://github.com/crimsonronin",
+            "role": "Developer"
         }
     ],
     "require": {
