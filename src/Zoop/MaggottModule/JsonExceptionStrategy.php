@@ -154,10 +154,10 @@ class JsonExceptionStrategy
                 $data['describedBy'] = $this->route->assemble(['id' => 'application-exception']);
             }
             
-            // add the status code from the exception if one exists and is not 0
+            // add the status code from the exception if one exists, is not 0 and is 4xx or 5xx
             if ($exception instanceof \Exception) {
-                $code = $exception->getCode();
-                if (!empty($code) && count($code) == 3 && in_array(strval($status)[0], ['4', '5'])) {
+                $code = strval($exception->getCode());
+                if (!empty($code) && strlen($code) == 3 && in_array($code[0], ['4', '5'])) {
                     $data['statusCode'] = $code;
                 }
             }
